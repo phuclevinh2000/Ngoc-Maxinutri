@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Sữa Bắp Tươi Yessy',
     image: '/images/suabap.jpg',
     description:
@@ -12,7 +11,6 @@ const products = [
     numReviews: 4,
   },
   {
-    _id: '2',
     name: 'Trà Sữa Vị Trà Đen',
     image: '/images/trasua.jpg',
     description:
@@ -24,7 +22,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '3',
     name: 'Trà Sữa Matcha',
     image: '/images/trasuamatcha.jpg',
     description:
@@ -36,7 +33,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Sữa Hạt Sen Yessy',
     image: '/images/suahatsen.jpg',
     description:
@@ -48,7 +44,6 @@ const products = [
     numReviews: 11,
   },
   {
-    _id: '5',
     name: 'Sữa Gạo Lức Thơm Ngon',
     image: '/images/suagaoluc.jpg',
     description:
@@ -60,7 +55,6 @@ const products = [
     numReviews: 11,
   },
   {
-    _id: '6',
     name: 'Chè Dưỡng Nhan Ngọc MaxiNutri',
     image: '/images/cheduongnhan.jpg',
     description:
@@ -72,7 +66,6 @@ const products = [
     numReviews: 11,
   },
   {
-    _id: '7',
     name: 'Sữa Chua Lắc Ngọc MaxiNutri',
     image: '/images/suachualac.jpg',
     description:
@@ -84,7 +77,6 @@ const products = [
     numReviews: 11,
   },
   {
-    _id: '8',
     name: 'Sữa Hạt Sen Yessy',
     image: '/images/suahatsen.jpg',
     description:
