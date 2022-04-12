@@ -12,9 +12,11 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import Message from '../../components/Message/Message';
 import CheckoutStep from '../../components/CheckoutStep/CheckoutStep';
+import { createOrder } from '../../redux/actions/orderAction';
 
 const PlaceOrderScreen = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
 
   const addDecimals = (num) => {
@@ -36,7 +38,29 @@ const PlaceOrderScreen = () => {
     Number(cart.shippingPrice) + Number(cart.itemsPrice) + Number(cart.taxPrice)
   );
 
-  const placeOrderHandler = () => {};
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { order, success, error } = orderCreate;
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+    }
+    // eslint-disable-next-line
+  }, [navigate, success]);
+
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        itemsPrice: cart.itemsPrice,
+        taxPrice: cart.taxPrice,
+        shippingPrice: cart.shippingPrice,
+        totalPrice: cart.totalPrice,
+        paymentMethod: cart.paymentMethod,
+      })
+    );
+  };
 
   return (
     <div>
@@ -122,7 +146,9 @@ const PlaceOrderScreen = () => {
                   <Col>{cart.totalPrice} vnđ</Col>
                 </Row>
               </ListGroupItem>
-
+              <ListGroupItem>
+                {error && <Message variant='danger'>{error}</Message>}
+              </ListGroupItem>
               <ListGroupItem>
                 <Button
                   type='button'
