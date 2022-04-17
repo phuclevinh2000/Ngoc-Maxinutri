@@ -58,15 +58,15 @@ const LoginScreen = () => {
         </Form.Group>
 
         <Button type='submit' variant='primary'>
-          Sign in
+          Đăng Nhập
         </Button>
       </Form>
 
       <Row className='py-3'>
         <Col>
-          New Customer?{' '}
+          Người Dùng Mới?{' '}
           <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-            Register
+            Đăng Kí
           </Link>
         </Col>
       </Row>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../../components/Message/Message';
 import Loader from '../../components/Loader/Loader';
-import { listUsers } from '../../redux/actions/userAction';
+import { listUsers, deleteUser } from '../../redux/actions/userAction';
 
 const UserListScreen = () => {
   const dispatch = useDispatch();
@@ -17,15 +17,22 @@ const UserListScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success: successDelete } = userDelete;
+
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listUsers());
     } else {
       navigate('/login');
     }
-  }, [dispatch, navigate, userInfo]);
+  }, [dispatch, navigate, userInfo, successDelete]);
 
-  const deleteHandler = () => {};
+  const deleteHandler = (id) => {
+    if (window.confirm('Bạn có chắc muốn xóa người dùng này không?')) {
+      dispatch(deleteUser(id));
+    }
+  };
 
   return (
     <div>
@@ -61,7 +68,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
                     </Button>
