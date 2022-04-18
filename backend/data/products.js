@@ -76,17 +76,6 @@ const products = [
     rating: 4.5,
     numReviews: 11,
   },
-  {
-    name: 'Sữa Hạt Sen Yessy',
-    image: '/images/suahatsen.jpg',
-    description:
-      'Sữa Hạt Sen Ngọc Maxinutri luôn đảm bảo tác dụng của sữa chua được phát huy tối đa, có chế độ bảo quản cẩn thận, giữ sản phẩm luôn giữ được độ mịn, không bị mất nhiều chất dinh dưỡng.',
-    category: 'healthy',
-    price: 24000,
-    countInStock: 1000,
-    rating: 4.5,
-    numReviews: 11,
-  },
 ];
 
 export default products;
