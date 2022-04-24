@@ -19,13 +19,13 @@ const protect = expressAsyncHandler(async (req, res, next) => {
     } catch (error) {
       console.error(error);
       res.status(401);
-      throw new Error('Not authorized, token failed');
+      throw new Error('Không được xác thực, token lỗi');
     }
   }
 
   if (!token) {
     res.status(401);
-    throw new Error('Not authorized, no token');
+    throw new Error('Không được xác thực, token lỗi');
   }
 });
 
@@ -34,7 +34,7 @@ const admin = (req, res, next) => {
     next();
   } else {
     res.status(401);
-    throw new Error('Not authoreized as an admin');
+    throw new Error('Không được xác thực là tài khoản admin');
   }
 };
 

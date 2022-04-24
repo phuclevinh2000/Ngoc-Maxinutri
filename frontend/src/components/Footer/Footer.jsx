@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <footer>
       <Container>
+        <hr />
         <Row>
           <Col md={4} sm={12} className='text-center py-3'>
             Copyright &copy; Phuc Le

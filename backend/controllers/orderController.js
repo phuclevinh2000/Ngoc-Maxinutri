@@ -19,7 +19,7 @@ const addOrderitems = asyncHandler(async (req, res) => {
 
   if (orderItems && orderItems.length === 0) {
     res.status(400);
-    throw new Error('No order items');
+    throw new Error('Chưa có đơn hàng');
     return;
   } else {
     const order = new Order({
@@ -54,7 +54,7 @@ const getOrderById = asyncHandler(async (req, res) => {
     res.json(order);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('Không tìm thấy đơn hàng');
   }
 });
 
@@ -80,7 +80,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('Không tìm thấy đơn hàng');
   }
 });
 
@@ -123,7 +123,7 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('Không tìm thấy đơn hàng');
   }
 });
 
