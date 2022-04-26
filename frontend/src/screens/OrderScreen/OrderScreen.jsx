@@ -213,7 +213,7 @@ const OrderScreen = () => {
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={order.totalPrice / 24000}
+                      amount={(order.totalPrice / 24000).toFixed(2)}
                       onSuccess={successPaymentHandler}
                     />
                   )}
