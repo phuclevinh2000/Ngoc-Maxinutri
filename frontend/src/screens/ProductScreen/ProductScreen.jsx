@@ -120,6 +120,7 @@ const ProductScreen = () => {
                         <Col>
                           <Form.Control
                             type='number'
+                            min={1}
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
                           ></Form.Control>
